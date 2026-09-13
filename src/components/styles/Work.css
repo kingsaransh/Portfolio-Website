@@ -26,6 +26,8 @@
   margin-left: -80px;
   padding-right: 120px;
   position: relative;
+  will-change: transform;
+  transform: translateZ(0);
 }
 .work-box {
   padding: 80px;
@@ -44,7 +46,7 @@
 .work-flex::before,
 .work-flex::after {
   content: "";
-  width: calc(50000vw);
+  width: 200vw;
   height: 1px;
   background-color: #363636;
   position: absolute;
@@ -165,7 +167,7 @@
     font-size: 50px;
   }
 }
-@media only screen and (max-width: 1400px) {
+@media only screen and (max-width: 900px) {
   .work-box {
     width: 350px;
     padding: 30px;

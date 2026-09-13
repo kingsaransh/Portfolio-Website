@@ -6,9 +6,7 @@ const About = () => {
       <div className="about-me">
         <h3 className="title">About Me</h3>
         <p className="para">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quis
-          dolores numquam iusto Ratione earum ducimus autem id iure pariatur
-          dolorum quae maiores.
+          I am an Artificial Intelligence & Machine Learning engineer from Roorkee, Uttarakhand, pursuing my B.Tech at COER University. I have practical experience building AI/ML solutions, computer vision surveillance pipelines, and real-time interactive systems using Python, OpenCV, YOLOv8, and Flask. Driven by innovation and problem-solving, I combine data-driven machine learning models with robust software development to create impactful technology.
         </p>
       </div>
     </div>

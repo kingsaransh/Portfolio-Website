@@ -15,43 +15,37 @@ const Career = () => {
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>Secondary & Senior Secondary</h4>
+                <h5>Holy Cross School, Laksar</h5>
               </div>
-              <h3>20XX</h3>
+              <h3>2021-23</h3>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
+              Class 12 (Science Stream, 78%) and Class 10 (89%). Developed deep analytical skills and strong fundamentals in science and mathematics.
             </p>
           </div>
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>B.Tech in AI & Machine Learning</h4>
+                <h5>COER University, Roorkee</h5>
               </div>
-              <h3>20XX</h3>
+              <h3>2023-27</h3>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
+              Pursuing B.Tech in AI & ML (CGPA: 7.5). Authored research paper on Carbon Emission management (Eco-Barrier) with high CO2-absorbing vertical plantations.
             </p>
           </div>
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>Artificial Intelligence Intern</h4>
+                <h5>CODE ALPHA (Remote)</h5>
               </div>
               <h3>NOW</h3>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
+              Developed practical AI/ML solutions in Python. Applied data preprocessing, feature engineering, and predictive modeling using NumPy, Pandas, and Scikit-learn.
             </p>
           </div>
         </div>

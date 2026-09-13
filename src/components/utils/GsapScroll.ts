@@ -1,5 +1,8 @@
 import * as THREE from "three";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export function setCharTimeline(
   character: THREE.Object3D<THREE.Object3DEventMap> | null,
@@ -9,30 +12,37 @@ export function setCharTimeline(
   setInterval(() => {
     intensity = Math.random();
   }, 200);
+  ScrollTrigger.getById("char-tl1")?.kill();
+  ScrollTrigger.getById("char-tl2")?.kill();
+  ScrollTrigger.getById("char-tl3")?.kill();
+
   const tl1 = gsap.timeline({
     scrollTrigger: {
+      id: "char-tl1",
       trigger: ".landing-section",
       start: "top top",
       end: "bottom top",
-      scrub: true,
+      scrub: 1,
       invalidateOnRefresh: true,
     },
   });
   const tl2 = gsap.timeline({
     scrollTrigger: {
+      id: "char-tl2",
       trigger: ".about-section",
       start: "center 55%",
       end: "bottom top",
-      scrub: true,
+      scrub: 1,
       invalidateOnRefresh: true,
     },
   });
   const tl3 = gsap.timeline({
     scrollTrigger: {
+      id: "char-tl3",
       trigger: ".whatIDO",
       start: "top top",
       end: "bottom top",
-      scrub: true,
+      scrub: 1,
       invalidateOnRefresh: true,
     },
   });
@@ -133,12 +143,15 @@ export function setCharTimeline(
 }
 
 export function setAllTimeline() {
+  ScrollTrigger.getById("career-timeline")?.kill();
+
   const careerTimeline = gsap.timeline({
     scrollTrigger: {
+      id: "career-timeline",
       trigger: ".career-section",
       start: "top 30%",
       end: "100% center",
-      scrub: true,
+      scrub: 1,
       invalidateOnRefresh: true,
     },
   });

@@ -7,50 +7,60 @@ import "./styles/Navbar.css";
 
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 export let smoother: ScrollSmoother;
+export const setSmoother = (s: ScrollSmoother) => {
+  smoother = s;
+};
 
 const Navbar = () => {
   useEffect(() => {
-    smoother = ScrollSmoother.create({
-      wrapper: "#smooth-wrapper",
-      content: "#smooth-content",
-      smooth: 1.7,
-      speed: 1.7,
-      effects: true,
-      autoResize: true,
-      ignoreMobileResize: true,
-    });
-
-    smoother.scrollTop(0);
-    smoother.paused(true);
-
-    let links = document.querySelectorAll(".header ul a");
+    const clickHandlers: { element: HTMLAnchorElement; handler: (e: MouseEvent) => void }[] = [];
+    const links = document.querySelectorAll(".header ul a");
     links.forEach((elem) => {
-      let element = elem as HTMLAnchorElement;
-      element.addEventListener("click", (e) => {
+      const element = elem as HTMLAnchorElement;
+      const handler = (e: MouseEvent) => {
         if (window.innerWidth > 1024) {
           e.preventDefault();
-          let elem = e.currentTarget as HTMLAnchorElement;
-          let section = elem.getAttribute("data-href");
-          smoother.scrollTo(section, true, "top top");
+          const target = e.currentTarget as HTMLAnchorElement;
+          const section = target.getAttribute("data-href");
+          if (section && smoother) {
+            smoother.scrollTo(section, true, "top top");
+          }
         }
+      };
+      element.addEventListener("click", handler);
+      clickHandlers.push({ element, handler });
+    });
+
+    let resizeTimer: number;
+    const onResize = () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(() => {
+        ScrollSmoother.refresh(true);
+      }, 150);
+    };
+
+    window.addEventListener("resize", onResize);
+
+    return () => {
+      clearTimeout(resizeTimer);
+      window.removeEventListener("resize", onResize);
+      clickHandlers.forEach(({ element, handler }) => {
+        element.removeEventListener("click", handler);
       });
-    });
-    window.addEventListener("resize", () => {
-      ScrollSmoother.refresh(true);
-    });
+    };
   }, []);
   return (
     <>
       <div className="header">
         <a href="/#" className="navbar-title" data-cursor="disable">
-          Logo
+          Saransh Saini
         </a>
         <a
-          href="mailto:example@mail.com"
+          href="mailto:saranshsaini635@gmail.com"
           className="navbar-connect"
           data-cursor="disable"
         >
-          example@mail.com
+          saranshsaini635@gmail.com
         </a>
         <ul>
           <li>
