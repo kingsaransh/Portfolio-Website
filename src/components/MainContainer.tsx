@@ -26,23 +26,27 @@ const MainContainer = ({ children }: PropsWithChildren) => {
 
   useGSAP(() => {
     if (isDesktopView) {
-      const smootherInstance = ScrollSmoother.create({
-        wrapper: "#smooth-wrapper",
-        content: "#smooth-content",
-        smooth: 0.8,
-        speed: 1,
-        effects: true,
-        autoResize: true,
-        ignoreMobileResize: true,
-      });
-      smootherInstance.scrollTop(0);
-      smootherInstance.paused(true);
-      setSmoother(smootherInstance);
-      setIsSmootherReady(true);
+      try {
+        const smootherInstance = ScrollSmoother.create({
+          wrapper: "#smooth-wrapper",
+          content: "#smooth-content",
+          smooth: 0.8,
+          speed: 1,
+          effects: true,
+          autoResize: true,
+          ignoreMobileResize: true,
+        });
+        smootherInstance.scrollTop(0);
+        smootherInstance.paused(true);
+        setSmoother(smootherInstance);
+        setIsSmootherReady(true);
 
-      return () => {
-        smootherInstance.kill();
-      };
+        return () => {
+          smootherInstance.kill();
+        };
+      } catch {
+        setIsSmootherReady(true);
+      }
     } else {
       setIsSmootherReady(true);
     }
