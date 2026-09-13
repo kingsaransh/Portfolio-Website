@@ -121,7 +121,7 @@ const Work = ({ isSmootherReady }: WorkProps) => {
                 <h4>Tools: {project.tools}</h4>
                 <p>{project.description}</p>
               </div>
-              <WorkImage image="/images/placeholder.webp" alt={project.name} />
+              <WorkImage image={`${import.meta.env.BASE_URL}images/placeholder.webp`} alt={project.name} />
             </div>
           ))}
         </div>
