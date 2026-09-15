@@ -91,6 +91,9 @@ const Scene = () => {
       mixer = animations.mixer;
       const character = gltf.scene;
       character.name = "character-model-root";
+      (window as any).__char = character;
+      (window as any).__camera = camera;
+      (window as any).__scene = scene;
       scene.add(character);
       headBone = character.getObjectByName("spine006") || null;
       screenLight = character.getObjectByName("screenlight") || null;
